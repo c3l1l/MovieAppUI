@@ -1,1 +1,30 @@
-<p>movies works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Movie Name</th>
+          <th scope="col">Director</th>
+          <th scope="col">Actors</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of moviesList let index=index">
+          <th scope="row" [innerText]="index+1"></th>
+          <td>{{movie.id}}</td>
+          <td class="text-primary" [innerText]="movie.name"></td>
+          <td [innerText]="movie.directorName" class="text-success"></td>
+          <td>
+            <ul class="nav justify-content-left" >
+                <li class="nav-item" *ngFor="let actor of movie.actors">
+                  <small class="text-secondary"><strong>{{actor}},  </strong></small>
+                </li>
+              </ul>
+          </td>
+          <td>
+            <a class="btn btn-warning mx-2" routerLink="movie-update/{{movie.id}}">Update</a>
+            <button class="btn btn-danger" (click)="delete(movie.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+</table>

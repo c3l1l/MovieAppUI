@@ -47,7 +47,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" routerLink="/admin">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -59,7 +59,7 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Movies List</a>
+                                    <a class="nav-link" routerLink="movies">Movies List</a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Movies Genre Relations </a>
                                     <a class="nav-link" href="layout-sidenav-light.html">Movies Actor Relations </a>
                                 </nav>
@@ -81,7 +81,7 @@
                         </ol>
                         <div class="row">
                             <div class="col-xl-6">
-                                
+                                <router-outlet></router-outlet>
                             </div>                          
                         </div>                       
                     </div>
