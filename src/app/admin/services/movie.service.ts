@@ -22,4 +22,7 @@ export class MovieService {
   update(movieUpdateModel:MovieUpdateModel){
     return this.http.put(`${this.baseUrl}/api/movies`,movieUpdateModel)
   }
+  delete(id?:number){
+    return this.http.delete(`${this.baseUrl}/api/movies/${id}`)
+  }
 }

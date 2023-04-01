@@ -6,6 +6,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutsComponent } from './admin-layouts/admin-layouts.component';
 import { ToastrModule } from 'ngx-toastr';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 const routes:Routes=[
   {
@@ -21,12 +22,14 @@ const routes:Routes=[
     MoviesModule,
     DashboardModule,
     RouterModule.forChild(routes),
-    ToastrModule
+    ToastrModule,
+    SweetAlert2Module
 
   ],
   exports:[
     AdminLayoutsModule,
-    DashboardModule
+    DashboardModule,
+   // SweetAlert2Module
 
 
   ]

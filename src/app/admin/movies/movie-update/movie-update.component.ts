@@ -7,6 +7,8 @@ import { MovieUpdateModel } from '../../models/movie-update-model';
 import { DirectorService } from '../../services/director.service';
 import { ErrorService } from '../../services/error.service';
 import { MovieService } from '../../services/movie.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-movie-update',

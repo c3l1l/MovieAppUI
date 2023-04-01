@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MovieModel } from '../models/movie-model';
+import { ErrorService } from '../services/error.service';
 import { MovieService } from '../services/movie.service';
 
 @Component({
@@ -10,7 +12,7 @@ import { MovieService } from '../services/movie.service';
 export class MoviesComponent  {
 
   moviesList:MovieModel[]=[];
-  constructor(private movieService:MovieService){
+  constructor(private movieService:MovieService,private errorService:ErrorService,private router:Router){
     
   }
   ngOnInit(){
@@ -25,6 +27,8 @@ this.getMovieList();
   }
   
   delete(id?:number){
-    alert("movieId:"+id);
+   this.movieService.delete(id).subscribe((res)=>{
+    this.getMovieList();
+   },(err)=>this.errorService.errorHandler(err))
   }
 }

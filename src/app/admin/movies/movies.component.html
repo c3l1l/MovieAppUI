@@ -1,3 +1,10 @@
+<div class="row">
+    <div class="d-flex justify-content-start mb-3 ">
+        <button class="btn btn-info mx-4"><i class="fa-sharp fa-regular fa-plus fa-lg"></i>  New Movie</button>
+    </div>
+</div>
+<div class="row">
+
 <table class="table table-hover">
     <thead>
         <tr>
@@ -11,7 +18,6 @@
       <tbody>
         <tr *ngFor="let movie of moviesList let index=index">
           <th scope="row" [innerText]="index+1"></th>
-          <td>{{movie.id}}</td>
           <td class="text-primary" [innerText]="movie.name"></td>
           <td [innerText]="movie.directorName" class="text-success"></td>
           <td>
@@ -23,8 +29,12 @@
           </td>
           <td>
             <a class="btn btn-warning mx-2" routerLink="movie-update/{{movie.id}}">Update</a>
-            <button class="btn btn-danger" (click)="delete(movie.id)">Delete</button>
+            <button class="btn btn-danger" [swal]="deleteSwal" (confirm)="delete(movie.id)">Delete</button>
           </td>
         </tr>
         </tbody>
 </table>
+<swal #deleteSwal title="Delete?" text="Do you want to delete this permanently?" type="question" [showCancelButton]="true" [focusCancel]="true" [swalOptions]="{confirmButtonText: 'Delete', cancelButtonText:'Exit'}"></swal>
+
+
+</div>
