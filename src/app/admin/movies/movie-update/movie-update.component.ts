@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { DirectorDropList } from '../../models/director-drop-menu';
+import { DirectorDropList } from '../../models/director-drop-list';
 import { MovieUpdateModel } from '../../models/movie-update-model';
 import { DirectorService } from '../../services/director.service';
 import { ErrorService } from '../../services/error.service';

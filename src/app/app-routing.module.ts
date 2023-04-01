@@ -8,6 +8,7 @@ import { GenreComponent } from './ui/genre/genre.component';
 import { GenreModule } from './ui/genre/genre.module';
 import { HomeComponent } from './ui/home/home.component';
 import { LayoutsComponent } from './ui/layouts/layouts.component';
+import { MovieAddComponent } from './admin/movies/movie-add/movie-add.component';
 
 const routes: Routes = [
   // {
@@ -27,6 +28,9 @@ const routes: Routes = [
       },
       {
         path:'movies/movie-update/:id',component:MovieUpdateComponent
+      },
+      {
+        path:'movies/movie-add',component:MovieAddComponent
       }
     ]
   },

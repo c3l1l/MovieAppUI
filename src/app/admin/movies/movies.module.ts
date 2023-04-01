@@ -6,6 +6,7 @@ import { MovieUpdateComponent } from './movie-update/movie-update.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { MovieAddComponent } from './movie-add/movie-add.component';
 
 const routes:Routes=[
   {path:'',component:MoviesComponent}
@@ -15,7 +16,8 @@ const routes:Routes=[
   declarations: [
     MoviesComponent,
     MovieDetailComponent,
-    MovieUpdateComponent
+    MovieUpdateComponent,
+    MovieAddComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ const routes:Routes=[
   exports:[
     MoviesComponent,
     MovieDetailComponent,
-    MovieUpdateComponent
+    MovieUpdateComponent,
+    MovieAddComponent
   ]
 })
 export class MoviesModule { }
