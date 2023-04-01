@@ -28,6 +28,7 @@
               </ul>
           </td>
           <td>
+            <a class="btn btn-warning mx-1" routerLink="movie-detail/{{movie.id}}">Movie Details</a>
             <a class="btn btn-warning mx-1" routerLink="movie-update/{{movie.id}}">Update</a>
             <button class="btn btn-danger mx-1" [swal]="deleteSwal" (confirm)="delete(movie.id)">Delete</button>
           </td>

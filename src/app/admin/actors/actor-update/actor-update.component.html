@@ -1,0 +1,23 @@
+<div class="col-md-8">
+    <div class="p-3 mb-2 bg-light text-dark"><h4 >Actor Update</h4>
+    </div>
+    <form #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+        <div class="mb-3">
+            <label for="actorId" class="form-label">Actor Id</label>
+            <input disabled type="text" class="form-control" id="actorId" name="actorId" [ngModel]="actorModel.id" [ngModelOptions]="{standalone: true}">
+          </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="actorModel.firstName" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="actorModel.lastname" [ngModelOptions]="{standalone: true}">
+          </div>
+          <!-- <div class="mb-3">
+            <label for="name" class="form-label">Birth Date</label>
+            <input type="string"  [(ngModel)]="actorModel.birthDate" [ngModelOptions]="{standalone: true}" />
+          </div> -->
+        <button type="submit" class="btn btn-primary" >Update</button>
+      </form>
+    </div>

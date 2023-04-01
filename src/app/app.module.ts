@@ -10,6 +10,7 @@ import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     
   ],
   providers: [
-    {provide:'BASE_API_URL',useValue:environment.baseUrl}
+    {provide:'BASE_API_URL',useValue:environment.baseUrl},
+    [DatePipe]
   ],
   bootstrap: [AppComponent]
 })

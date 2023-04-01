@@ -1,1 +1,34 @@
-<p>directors works!</p>
+<div class="row">
+    <div class="d-flex justify-content-start mb-3 ">
+        <a class="btn btn-info mx-4" routerLink="director-add"><i class="fa-sharp fa-regular fa-plus fa-lg"></i>  New Director</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Birth Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let director of directorsList let index=index">
+          <th scope="row" [innerText]="index+1"></th>
+          <td class="text-primary" [innerText]="director.firstName"></td>
+          <td class="text-primary" [innerText]="director.lastName"></td>
+          <td class="text-primary" [innerText]="director.birthDate | date  "></td>
+          <td>
+            <a class="btn btn-warning mx-1" routerLink="director-update/{{director.id}}">Update</a>
+            <button class="btn btn-danger mx-1" [swal]="deleteSwal" (confirm)="delete(director.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+</table>
+<swal #deleteSwal title="Delete?" text="Do you want to delete this permanently?" type="question" [showCancelButton]="true" [focusCancel]="true" [swalOptions]="{confirmButtonText: 'Delete', cancelButtonText:'Exit'}"></swal>
+</div>
+
+</div>

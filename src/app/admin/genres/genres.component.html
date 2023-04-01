@@ -1,1 +1,30 @@
-<p>genres works!</p>
+<div class="row">
+    <div class="d-flex justify-content-start mb-3 ">
+        <a class="btn btn-info mx-4" routerLink="genre-add"><i class="fa-sharp fa-regular fa-plus fa-lg"></i>  New Genre</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>#</th>
+          <th>Genre Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let genre of genresList let index=index">
+          <th scope="row" [innerText]="index+1"></th>
+          <td class="text-primary" [innerText]="genre.name"></td>
+          <td>
+            <a class="btn btn-warning mx-1" routerLink="genre-update/{{genre.id}}">Update</a>
+            <button class="btn btn-danger mx-1" [swal]="deleteSwal" (confirm)="delete(genre.id)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+</table>
+<swal #deleteSwal title="Delete?" text="Do you want to delete this permanently?" type="question" [showCancelButton]="true" [focusCancel]="true" [swalOptions]="{confirmButtonText: 'Delete', cancelButtonText:'Exit'}"></swal>
+</div>
+
+</div>
