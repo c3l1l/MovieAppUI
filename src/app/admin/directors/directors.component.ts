@@ -3,6 +3,7 @@ import { DirectorModel } from '../models/director-model';
 import { DirectorService } from '../services/director.service';
 import { ErrorService } from '../services/error.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-directors',
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 export class DirectorsComponent {
   directorsList: DirectorModel[] = [];
 
-  constructor(private directorService: DirectorService, private errorService: ErrorService, private router: Router) {
+  constructor(private directorService: DirectorService, private errorService: ErrorService, private router: Router,private toastr:ToastrService) {
 
   }
   ngOnInit() {
@@ -29,6 +30,8 @@ export class DirectorsComponent {
   delete(id?: number) {
     this.directorService.delete(id).subscribe((res:any) => {
       this.get();
+      this.toastr.success('Director successfully deleted.', 'Delete !');
+
     }, (err) => this.errorService.errorHandler(err))
   }
 }

@@ -4,6 +4,8 @@ import { DirectorsComponent } from './directors.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { DirectorAddComponent } from './director-add/director-add.component';
+import { DirectorUpdateComponent } from './director-update/director-update.component';
 
 
 const routes:Routes=[
@@ -14,7 +16,9 @@ const routes:Routes=[
 
 @NgModule({
   declarations: [
-    DirectorsComponent
+    DirectorsComponent,
+    DirectorAddComponent,
+    DirectorUpdateComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +27,9 @@ const routes:Routes=[
     SweetAlert2Module
   ],
   exports:[
-    DirectorsComponent
+    DirectorsComponent,
+    DirectorAddComponent,
+    DirectorUpdateComponent
   ]
 })
 export class DirectorsModule { }

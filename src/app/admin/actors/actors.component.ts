@@ -3,6 +3,7 @@ import { ActorModel } from '../models/actor-model';
 import { ActorService } from '../services/actor.service';
 import { Router } from '@angular/router';
 import { ErrorService } from '../services/error.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-actors',
@@ -12,7 +13,7 @@ import { ErrorService } from '../services/error.service';
 export class ActorsComponent {
   actorsList: ActorModel[] = [];
 
-  constructor(private actorService: ActorService, private errorService: ErrorService, private router: Router) {
+  constructor(private actorService: ActorService, private errorService: ErrorService, private router: Router,private toastr:ToastrService) {
 
   }
   ngOnInit() {
@@ -29,6 +30,8 @@ export class ActorsComponent {
   delete(id?: number) {
     this.actorService.delete(id).subscribe((res:any) => {
       this.get();
+      this.toastr.success('Actor successfully deleted.', 'Delete !');
+
     }, (err) => this.errorService.errorHandler(err))
   }
 }

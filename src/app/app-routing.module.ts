@@ -16,6 +16,8 @@ import { ActorsComponent } from './admin/actors/actors.component';
 import { ActorUpdateComponent } from './admin/actors/actor-update/actor-update.component';
 import { ActorAddComponent } from './admin/actors/actor-add/actor-add.component';
 import { DirectorsComponent } from './admin/directors/directors.component';
+import { DirectorUpdateComponent } from './admin/directors/director-update/director-update.component';
+import { DirectorAddComponent } from './admin/directors/director-add/director-add.component';
 
 const routes: Routes = [
   // {
@@ -67,10 +69,10 @@ const routes: Routes = [
         loadChildren:()=>import('./admin/directors/directors.module').then(m=>m.DirectorsModule)
       },     
       {
-        path:'directors/director-update/:id',component:ActorUpdateComponent
+        path:'directors/director-update/:id',component:DirectorUpdateComponent
       },
       {
-        path:'directors/director-add',component:ActorAddComponent
+        path:'directors/director-add',component:DirectorAddComponent
       }
     ]
   },

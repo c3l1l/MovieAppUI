@@ -1,1 +1,36 @@
-<p>movie-detail works!</p>
+<div class="col-md-8">
+    <div class="p-3 mb-2 bg-light text-dark">
+        <h4>Movie Details</h4>
+    </div>
+    <form #updateForm="ngForm" (ngSubmit)="update(updateForm)">
+        <div class="mb-3">
+            <label for="movieId" class="form-label">Id</label>
+            <input disabled type="text" class="form-control" id="id" name="id" [ngModel]="movieDetailModel.id"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="mb-3">
+            <label for="movieId" class="form-label">Movie Id</label>
+            <input disabled type="text" class="form-control" id="movieId" name="movieId"
+                [ngModel]="movieDetailModel.movieId" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="mb-3">
+            <label for="movieId" class="form-label">Rating</label>
+            <input disabled type="text" class="form-control" id="rating" name="rating"
+                [ngModel]="movieDetailModel.rating" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Date Released</label>
+            <input type="text" class="form-control" id="dateReleased" name="dateReleased"
+                [(ngModel)]="movieDetailModel.dateReleased " [ngModelOptions]="{standalone: true}">
+        </div>
+        <img src="{{movieDetailModel.posterPath}}" alt="">
+        <div class="mb-3">
+            <label for="name" class="form-label">Poster</label>
+            <input type="text" class="form-control" id="posterPath" name="posterPath"
+                [(ngModel)]="movieDetailModel.posterPath" [ngModelOptions]="{standalone: true}">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+
+        <a (click)="getById()">Image Test</a>
+    </form>
+</div>
