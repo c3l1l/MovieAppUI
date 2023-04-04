@@ -1,10 +1,10 @@
-<div class="col-lg-8 offset-md-2">   
+<div class="col-lg-8 offset-md-2">
 
     <div class="row">
         <div class="col-lg-6"  *ngFor="let movie of movieInfoList">
             <!-- Blog post-->
             <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..."></a>
+                <a href="#!"><img class="card-img-top" style="height:300px;width:200px" [src]="movie.posterPath" alt="..."></a>
                 <div class="card-body">
                     <div class="small text-muted">Director: <mark>{{movie.directorName}}</mark></div>
                     <h5 class="card-title h5 text-primary" [innerText]="movie.name" ></h5>
@@ -12,9 +12,9 @@
                        <table ><tr ><td *ngFor="let actor of movie.actors" class="text-secondary">{{actor}}, <td></tr></table>
                     <a class="btn btn-primary mt-2" href="#!">Read more →</a>
                 </div>
-            </div>           
+            </div>
         </div>
-       
+
     </div>
     <!-- Pagination-->
     <nav aria-label="Pagination">

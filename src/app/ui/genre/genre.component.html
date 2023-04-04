@@ -1,25 +1,25 @@
-<div class="col-lg-10 offset-md-1">   
+<div class="col-lg-10 offset-md-1">
     <ul class="nav justify-content-center" >
         <li class="nav-item" *ngFor="let genre of genreList">
           <a class="nav-link" aria-current="page" (click)="getMoviesByGenreId(genre.id)"><strong>{{genre.name }} {{genre.id}}</strong></a>
         </li>
-       
+
       </ul>
     <div class="row">
         <div *ngIf="!genreMovieList.movieList?.length " class="text-center">
             <h4 class="h4 text-danger">NO RECORDS FOUND !</h4>
-        </div> 
+        </div>
         <div class="col-lg-3" *ngFor="let movie of genreMovieList.movieList" >
             <!-- Blog post-->
             <div class="card mb-4">
-                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..."></a>
+                <a href="#!"><img class="card-img-top" style="height:300px;width:240px" [src]="movie.posterPath" alt="..."></a>
                 <div class="card-body">
                     <div class="small text-muted">Genre: <mark>{{genreName}}</mark></div>
-                    <h5 class="card-title h5 text-primary" [innerText]="movie.name" ></h5>                   
+                    <h5 class="card-title h5 text-primary" [innerText]="movie.name" ></h5>
                     <a class="btn btn-primary mt-2" href="#!">Read more →</a>
                 </div>
-            </div>   
-        </div>   
+            </div>
+        </div>
     </div>
     <!-- Pagination-->
     <nav aria-label="Pagination">

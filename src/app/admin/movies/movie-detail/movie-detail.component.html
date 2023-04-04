@@ -19,18 +19,41 @@
                 [ngModel]="movieDetailModel.rating" [ngModelOptions]="{standalone: true}">
         </div>
         <div class="mb-3">
-            <label for="name" class="form-label">Date Released</label>
-            <input type="text" class="form-control" id="dateReleased" name="dateReleased"
-                [(ngModel)]="movieDetailModel.dateReleased " [ngModelOptions]="{standalone: true}">
+            <label for="name" class="form-label">Release Date</label>
+            <h4 disabled type="text" class="text-info" id="dateReleased" name="dateReleased"
+                [innerText]="movieDetailModel.dateReleased | date"> </h4>
         </div>
-        <img src="{{movieDetailModel.posterPath}}" alt="">
         <div class="mb-3">
-            <label for="name" class="form-label">Poster</label>
-            <input type="text" class="form-control" id="posterPath" name="posterPath"
-                [(ngModel)]="movieDetailModel.posterPath" [ngModelOptions]="{standalone: true}">
+            <label for="name" class="form-label">Release Date</label>
+            <input type="date" class="form-control" name="dateReleased" [(ngModel)]="movieDetailModel.dateReleased">
         </div>
         <button type="submit" class="btn btn-primary">Update</button>
-
-        <a (click)="getById()">Image Test</a>
+        <button type="submit" class="btn btn-warning mx-2" routerLink="/admin/movies">Back</button>
     </form>
+</div>
+
+
+<div class="mb-3 mt-5 border-solid">
+    <img src="{{movieDetailModel.posterPath}}" />
+    <h2 *ngIf="movieDetailModel.posterPath==null" class="text-danger"> Poster Not Found !</h2>
+</div>
+<div class="card-body">
+    <div class="form-group">
+        <label for="exampleInputFile">Poster Image File input</label>
+        <div class="input-group border">
+            <div class="custom-file">
+                <input multiple #images type="file" class="custom-file-input" (change)="getImage($event)"
+                    id="exampleInputFile">
+            </div>
+            <div class="input-group-append">
+                <div *ngIf="isExistMovieDetail">
+                    <a class="input-group-text btn btn-warning" (click)="updateImage()">Update
+                        Poster</a>
+                </div>
+                <div *ngIf="!isExistMovieDetail">
+                    <a class="input-group-text btn btn-warning" (click)="uploadImage()" >Poster Add</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

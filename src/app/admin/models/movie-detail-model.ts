@@ -4,5 +4,4 @@ export class MovieDetailModel{
     rating?:number;
     posterPath?:string;
     movieId?:number;
-
 }

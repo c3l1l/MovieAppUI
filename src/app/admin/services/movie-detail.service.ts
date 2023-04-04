@@ -24,4 +24,10 @@ export class MovieDetailService {
   delete(id?:number){
     return this.http.delete(`${this.baseUrl}/api/movieDetails/${id}`)
   }
+  addPosterImage(movieDetailModel:any){
+    return this.http.post(`${this.baseUrl}/api/movieDetails`,movieDetailModel)
+  }
+  updatePosterImage(movieDetailModel:any){
+    return this.http.put(`${this.baseUrl}/api/movieDetails`,movieDetailModel)
+  }
 }

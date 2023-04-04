@@ -1,6 +1,8 @@
 export class MovieInfoModel{
-    id?:number
-    name?:string
-    directorName?:string
-    actors?:string[]
+    id?:number=0;
+    name?:string;
+    directorName?:string;
+    actors?:string[];
+    posterPath?:string;
+
 }

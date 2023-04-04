@@ -1,7 +1,9 @@
 export class MovieModel {
-    name?:string
-    directorId?:number
-    id?:number
+    name?:string;
+    directorId?:number;
+    id?:number;
+    posterPath?:string;
 
-    
+
+
 }

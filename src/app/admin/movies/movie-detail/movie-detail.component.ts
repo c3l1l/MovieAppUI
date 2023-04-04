@@ -13,32 +13,75 @@ import { NgForm } from '@angular/forms';
 })
 export class MovieDetailComponent {
 
-  id?:number|undefined;
+  fileImage: any;
+  movieId:number=0;
   movieDetailModel:MovieDetailModel=new MovieDetailModel();
+  statusCode:number=0;
+  isExistMovieDetail:boolean=false;
 
   constructor(private movieDetailService:MovieDetailService,private router:Router,private toastr:ToastrService,private errorService:ErrorService,private activatedRouter:ActivatedRoute){
+    this.movieDetailModel.id=0;
   }
   ngOnInit(){
-    this.id=Number(this.activatedRouter.snapshot.paramMap.get('id'));
-    this.getByMovieId(this.id);
+    this.movieId=Number(this.activatedRouter.snapshot.paramMap.get('id'));
+    this.isExist();
+    this.getByMovieId(this.movieId);
   }
   getByMovieId(id:number){
     this.movieDetailService.getByMovieId(id).subscribe((res:any)=>{
       this.movieDetailModel=res.data;
     },(err)=>{
+      this.statusCode=err.status;
+
+      //this.errorService.errorHandler(err);
+    })
+  }
+  getById(){
+
+  }
+  update(form:NgForm){
+      this.movieDetailService.update(this.movieDetailModel).subscribe((res:any)=>{
+        this.toastr.success("Movie Detail successfully updated.","Movie Detail Update");
+      },(err)=>{
+        this.errorService.errorHandler(err);
+      })
+  }
+
+  getImage(event: any) {
+    this.fileImage = event.target.files[0];
+    }
+  uploadImage() {
+    let formData = new FormData();
+    formData.append("movieId",this.movieId.toString());
+    formData.append("poster",this.fileImage)
+    this.movieDetailService.addPosterImage(formData).subscribe((res: any) => {
+      this.toastr.success("success","success");
+      this.getByMovieId(this.movieId);
+    }, (err) => {
       this.errorService.errorHandler(err);
     })
   }
-
-  getById(){
-    this.movieDetailService.get(1).subscribe((res:any)=>{
-console.log(res.data);
+  updateImage() {
+    let formData = new FormData();
+    formData.append("id",String(this.movieDetailModel.id));
+    formData.append("posterPath",String(this.movieDetailModel.posterPath));
+    formData.append("movieId",this.movieId.toString());
+    formData.append("poster",this.fileImage)
+    this.movieDetailService.updatePosterImage(formData).subscribe((res: any) => {
+      this.toastr.success("success","success");
+      this.getByMovieId(this.movieId);
+    }, (err) => {
+      this.errorService.errorHandler(err);
     })
   }
-
-  update(form:NgForm){
-      console.log(form);
-      console.log(form.value.posterPath +" " + form.value.dateReleased);
-      console.log(this.movieDetailModel.dateReleased + "-" + this.movieDetailModel.posterPath)
+  isExist(){
+    this.movieDetailService.getByMovieId(this.movieId).subscribe((res:any)=>{
+        if(res.data==null){
+          this.isExistMovieDetail=false;
+        }
+        else{
+          this.isExistMovieDetail=true;
+        }
+    })
   }
 }
