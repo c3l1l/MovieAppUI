@@ -18,6 +18,7 @@ import { ActorAddComponent } from './admin/actors/actor-add/actor-add.component'
 import { DirectorsComponent } from './admin/directors/directors.component';
 import { DirectorUpdateComponent } from './admin/directors/director-update/director-update.component';
 import { DirectorAddComponent } from './admin/directors/director-add/director-add.component';
+import { LoginComponent } from './admin/login/login.component';
 
 const routes: Routes = [
   // {
@@ -25,12 +26,20 @@ const routes: Routes = [
   //   loadChildren:()=>import('./admin/admin-layouts/admin-layouts.module').then(m=>m.AdminLayoutsModule)
   // },
   {
+    path:'login',component:LoginComponent,
+    loadChildren:()=>import('./admin/login/login.module').then(m=>m.LoginModule)
+  },
+  {
     path:'admin',component: AdminLayoutsComponent,
     children:[
       {
         path:'',component:DashboardComponent,
         loadChildren:()=>import('./admin/dashboard/dashboard.module').then(m=>m.DashboardModule)
       },
+      // {
+      //   path:'login',component:LoginComponent,
+      //   loadChildren:()=>import('./admin/login/login.module').then(m=>m.LoginModule)
+      // },
       {
         path:'movies',component:MoviesComponent,
         loadChildren:()=>import('./admin/movies/movies.module').then(m=>m.MoviesModule)
@@ -47,7 +56,7 @@ const routes: Routes = [
       {
         path:'genres',component:GenresComponent,
         loadChildren:()=>import('./admin/genres/genres.module').then(m=>m.GenresModule)
-      },     
+      },
       {
         path:'genres/genre-update/:id',component:GenreUpdateComponent
       },
@@ -57,7 +66,7 @@ const routes: Routes = [
       {
         path:'actors',component:ActorsComponent,
         loadChildren:()=>import('./admin/actors/actors.module').then(m=>m.ActorsModule)
-      },     
+      },
       {
         path:'actors/actor-update/:id',component:ActorUpdateComponent
       },
@@ -67,7 +76,7 @@ const routes: Routes = [
       {
         path:'directors',component:DirectorsComponent,
         loadChildren:()=>import('./admin/directors/directors.module').then(m=>m.DirectorsModule)
-      },     
+      },
       {
         path:'directors/director-update/:id',component:DirectorUpdateComponent
       },

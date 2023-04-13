@@ -11,7 +11,7 @@
         <!-- <link href="../../../assets/admin/dist/css/styles.css" rel="stylesheet" /> -->
         <!-- <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -26,8 +26,10 @@
                     <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
                 </div>
             </form>
+            <a routerLink="/login" *ngIf="!isAuthenticate">Login</a>
             <!-- Navbar-->
-            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <div *ngIf="isAuthenticate">
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4" >
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
 
@@ -35,11 +37,12 @@
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                        <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
                     </ul>
                 </li>
             </ul>
-            
+        </div>
+
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -120,8 +123,8 @@
                         <div class="row">
                             <div class="col-xl-6">
                                 <router-outlet></router-outlet>
-                            </div>                          
-                        </div>                       
+                            </div>
+                        </div>
                     </div>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
@@ -140,7 +143,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="../../../assets/admin/dist/js/scripts.js"></script>
-       
+
     </body>
 </html>
 
