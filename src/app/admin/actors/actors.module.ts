@@ -6,6 +6,7 @@ import { ActorAddComponent } from './actor-add/actor-add.component';
 import { ActorUpdateComponent } from './actor-update/actor-update.component';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ActorPipe } from '../pipes/actor.pipe';
 
 const routes:Routes=[
   {path:'', component:ActorsComponent}
@@ -15,7 +16,8 @@ const routes:Routes=[
   declarations: [
     ActorsComponent,
     ActorAddComponent,
-    ActorUpdateComponent
+    ActorUpdateComponent,
+    ActorPipe
   ],
   imports: [
     CommonModule,

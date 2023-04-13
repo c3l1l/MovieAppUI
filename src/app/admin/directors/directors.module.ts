@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DirectorAddComponent } from './director-add/director-add.component';
 import { DirectorUpdateComponent } from './director-update/director-update.component';
+import { DirectorPipe } from '../pipes/director.pipe';
 
 
 const routes:Routes=[
@@ -18,7 +19,8 @@ const routes:Routes=[
   declarations: [
     DirectorsComponent,
     DirectorAddComponent,
-    DirectorUpdateComponent
+    DirectorUpdateComponent,
+    DirectorPipe
   ],
   imports: [
     CommonModule,

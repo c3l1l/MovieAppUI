@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MovieAddComponent } from './movie-add/movie-add.component';
+import { MoviePipe } from '../pipes/movie.pipe';
 
 const routes:Routes=[
   {path:'',component:MoviesComponent}
@@ -17,14 +18,15 @@ const routes:Routes=[
     MoviesComponent,
     MovieDetailComponent,
     MovieUpdateComponent,
-    MovieAddComponent
+    MovieAddComponent,
+    MoviePipe
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
     SweetAlert2Module
-    
+
   ],
   exports:[
     MoviesComponent,

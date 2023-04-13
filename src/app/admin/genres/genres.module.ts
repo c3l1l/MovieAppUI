@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GenreUpdateComponent } from './genre-update/genre-update.component';
 import { FormsModule } from '@angular/forms';
 import { GenreAddComponent } from './genre-add/genre-add.component';
+import { GenrePipe } from '../pipes/genre.pipe';
 
 const routes:Routes=[
   {path:'',component:GenresComponent}
@@ -15,7 +16,8 @@ const routes:Routes=[
   declarations: [
     GenresComponent,
     GenreUpdateComponent,
-    GenreAddComponent
+    GenreAddComponent,
+    GenrePipe
   ],
   imports: [
     CommonModule,

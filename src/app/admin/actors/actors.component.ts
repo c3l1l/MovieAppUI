@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ActorsComponent {
   actorsList: ActorModel[] = [];
+  filterText:string="";
 
   constructor(private actorService: ActorService, private errorService: ErrorService, private router: Router,private toastr:ToastrService) {
 

@@ -11,8 +11,9 @@ import { ErrorService } from '../services/error.service';
 })
 export class GenresComponent {
   genresList:GenreModel[]=[];
+  filterText:string="";
   constructor(private genreService:GenreService,private errorService:ErrorService,private router:Router){
-    
+
   }
   ngOnInit(){
 this.get();
@@ -24,7 +25,7 @@ this.get();
       console.log(res.data);
     })
   }
-  
+
   delete(id?:number){
    this.genreService.delete(id).subscribe((res)=>{
     this.get();

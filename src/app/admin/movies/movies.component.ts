@@ -12,6 +12,7 @@ import { MovieService } from '../services/movie.service';
 export class MoviesComponent  {
 
   moviesList:MovieModel[]=[];
+  filterText:string="";
   constructor(private movieService:MovieService,private errorService:ErrorService,private router:Router){
 
   }

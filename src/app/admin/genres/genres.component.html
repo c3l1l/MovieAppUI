@@ -1,6 +1,11 @@
 <div class="row">
     <div class="d-flex justify-content-start mb-3 ">
         <a class="btn btn-info mx-4" routerLink="genre-add"><i class="fa-sharp fa-regular fa-plus fa-lg"></i>  New Genre</a>
+        <div class="col-md-6">
+          <div class="form-group offset-0">
+            <input class="form-control" [(ngModel)]="filterText" [ngModelOptions]="{standalone:true}" type="search" placeholder="Aranacak kelime" aria-label="Aranacak kelime">
+          </div>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -14,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let genre of genresList let index=index">
+        <tr *ngFor="let genre of genresList | genrePipe:filterText let index=index">
           <th scope="row" [innerText]="index+1"></th>
           <td class="text-primary" [innerText]="genre.name"></td>
           <td>

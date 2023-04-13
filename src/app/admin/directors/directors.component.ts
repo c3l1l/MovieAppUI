@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DirectorsComponent {
   directorsList: DirectorModel[] = [];
+  filterText:string="";
 
   constructor(private directorService: DirectorService, private errorService: ErrorService, private router: Router,private toastr:ToastrService) {
 

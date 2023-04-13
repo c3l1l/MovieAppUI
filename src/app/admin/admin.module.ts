@@ -7,6 +7,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminLayoutsComponent } from './admin-layouts/admin-layouts.component';
 import { ToastrModule } from 'ngx-toastr';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { ActorPipe } from './pipes/actor.pipe';
+import { DirectorPipe } from './pipes/director.pipe';
+import { GenrePipe } from './pipes/genre.pipe';
 
 const routes:Routes=[
   {
@@ -15,7 +18,10 @@ const routes:Routes=[
 ]
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+
+  ],
   imports: [
     CommonModule,
     AdminLayoutsModule,
