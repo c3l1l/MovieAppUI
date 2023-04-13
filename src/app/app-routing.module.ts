@@ -20,6 +20,7 @@ import { DirectorUpdateComponent } from './admin/directors/director-update/direc
 import { DirectorAddComponent } from './admin/directors/director-add/director-add.component';
 import { LoginComponent } from './admin/login/login.component';
 import { AuthGuard } from './admin/login/guard/auth.guard';
+import { RegisterComponent } from './admin/register/register.component';
 
 const routes: Routes = [
   // {
@@ -29,6 +30,10 @@ const routes: Routes = [
   {
     path:'login',component:LoginComponent,
     loadChildren:()=>import('./admin/login/login.module').then(m=>m.LoginModule)
+  },
+  {
+    path:'register',component:RegisterComponent,
+    loadChildren:()=>import('./admin/register/register.module').then(m=>m.RegisterModule)
   },
   {
     path:'admin',component: AdminLayoutsComponent,
