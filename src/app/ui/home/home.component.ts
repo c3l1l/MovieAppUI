@@ -3,6 +3,7 @@ import { MovieInfoModel } from '../models/movie-info-model';
 import { MovieModel } from '../models/movie-model';
 import { MovieService } from '../services/movie.service';
 import { MovieDetailService } from '../services/movie-detail.service';
+import { ErrorService } from 'src/app/admin/services/error.service';
 
 @Component({
   selector: 'app-home',

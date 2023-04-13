@@ -24,8 +24,14 @@ export class ErrorService {
     else if(err.status==405){
       this.toastr.error("Unknown Error!");
     }
+    else if(err.status==401){
+      this.toastr.error("Unauthorized action !");
+    }
     else{
-      this.toastr.error(err.error.Message);
+      console.log(err);
+      err.error.errors.forEach((element: any)=>{
+        console.log("error:> "+element)
+        this.toastr.error(element)})
     }
   }
 

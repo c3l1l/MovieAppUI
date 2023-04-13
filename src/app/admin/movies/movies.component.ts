@@ -13,7 +13,7 @@ export class MoviesComponent  {
 
   moviesList:MovieModel[]=[];
   constructor(private movieService:MovieService,private errorService:ErrorService,private router:Router){
-    
+
   }
   ngOnInit(){
 this.getMovieList();
@@ -25,7 +25,7 @@ this.getMovieList();
       console.log(res.data);
     })
   }
-  
+
   delete(id?:number){
    this.movieService.delete(id).subscribe((res)=>{
     this.getMovieList();

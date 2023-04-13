@@ -4,13 +4,14 @@ import { environment } from 'src/environments/environment.development';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule} from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { UiModule } from './ui/ui.module';
 import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { DatePipe } from '@angular/common';
+import { AuthInterceptor } from './admin/login/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -28,11 +29,12 @@ import { DatePipe } from '@angular/common';
       progressBar:true
     }),
     SweetAlert2Module.forRoot()
-    
-    
+
+
   ],
   providers: [
     {provide:'BASE_API_URL',useValue:environment.baseUrl},
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
     [DatePipe]
   ],
   bootstrap: [AppComponent]
