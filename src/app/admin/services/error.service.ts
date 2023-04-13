@@ -11,7 +11,6 @@ export class ErrorService {
   errorHandler(err:any){
    if(err.status==400 && err.data==null){
        err.error.errors.forEach((element: any)=>{
-        console.log("error:> "+element)
         this.toastr.error(element)})
     }
     else if(err.status == 400){

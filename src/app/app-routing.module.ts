@@ -19,6 +19,7 @@ import { DirectorsComponent } from './admin/directors/directors.component';
 import { DirectorUpdateComponent } from './admin/directors/director-update/director-update.component';
 import { DirectorAddComponent } from './admin/directors/director-add/director-add.component';
 import { LoginComponent } from './admin/login/login.component';
+import { AuthGuard } from './admin/login/guard/auth.guard';
 
 const routes: Routes = [
   // {
@@ -31,6 +32,7 @@ const routes: Routes = [
   },
   {
     path:'admin',component: AdminLayoutsComponent,
+    canActivateChild:[AuthGuard],
     children:[
       {
         path:'',component:DashboardComponent,
