@@ -23,7 +23,6 @@ export class RegisterComponent {
   }
 
   register(form:any){
-      //alert(this.registerModel.userName+"-"+this.registerModel.email+"-"+this.registerModel.password);
       this.userService.register(this.registerModel).subscribe((res:any)=>{
         this.toastr.success('You signed up successfully.', 'Signed Up !');
         this.router.navigateByUrl("/login");

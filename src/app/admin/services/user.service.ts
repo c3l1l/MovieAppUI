@@ -12,4 +12,7 @@ export class UserService {
   register(registerModel:RegisterModel){
     return this.http.post(`${this.baseUrl}/api/Users`, registerModel);
   }
+  getUser(){
+    return this.http.get(`${this.baseUrl}/api/Users`);
+  }
 }
