@@ -4,13 +4,18 @@
     <form #addForm="ngForm" (ngSubmit)="add(addForm)">
         <div class="mb-3">
           <label for="name" class="form-label">Movie Name</label>
-          <input type="text" class="form-control" name="moviename" [(ngModel)]="movieAddModel.name">
+          <input type="text" class="form-control" required minlength="2" #movieNameInput="ngModel" name="moviename" [(ngModel)]="movieAddModel.name">
         </div>
+              <div class="alert alert-danger"
+              *ngIf="movieNameInput.invalid && (movieNameInput.dirty || movieNameInput.touched)">
+              <small *ngIf="movieNameInput.errors?.['required']">Movie name required !</small>
+              <small *ngIf="movieNameInput.errors?.['minlength']">Movie name minimum length is 2 character !</small>
+          </div>
         <div class="mb-3">
             <label for="name" class="form-label">Movie Director</label>
             <select class="form-select" (ngModelChange)="directorChange($event)" name="director" [ngModel]="directorDropList">
-                                         
-                <option *ngFor="let director of directorDropList" value="{{director.id}}" [innerText]="">{{director.firstName}} {{director.lastName}}  
+
+                <option *ngFor="let director of directorDropList" value="{{director.id}}" [innerText]="">{{director.firstName}} {{director.lastName}}
                 </option>
               </select>
         </div>

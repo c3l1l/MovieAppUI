@@ -4,7 +4,7 @@ import { MoviesComponent } from './movies.component';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { MovieUpdateComponent } from './movie-update/movie-update.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MoviePipe } from '../pipes/movie.pipe';
@@ -25,6 +25,7 @@ const routes:Routes=[
     CommonModule,
     RouterModule.forChild(routes),
     FormsModule,
+    ReactiveFormsModule,
     SweetAlert2Module
 
   ],

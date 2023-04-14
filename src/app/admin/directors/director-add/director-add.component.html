@@ -4,11 +4,19 @@
     <form #addForm="ngForm" (ngSubmit)="add(addForm)">
         <div class="mb-3">
           <label for="name" class="form-label">First Name</label>
-          <input type="text" class="form-control" name="firstname" [(ngModel)]="directorModel.firstName">
+          <input type="text" class="form-control" required minlength="2" #directorFirstNameInput="ngModel" name="firstname" [(ngModel)]="directorModel.firstName">
+        </div>
+        <div class="alert alert-danger" *ngIf="directorFirstNameInput.invalid && (directorFirstNameInput.dirty || directorFirstNameInput.touched)">
+          <small *ngIf="directorFirstNameInput.errors?.['required']">Director First name required !</small>
+          <small *ngIf="directorFirstNameInput.errors?.['minlength']">Director name minimum length is 2 character !</small>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="lastname" [(ngModel)]="directorModel.lastName">
+            <input type="text" class="form-control" required minlength="2" #directorLastNameInput="ngModel" name="lastname" [(ngModel)]="directorModel.lastName">
+          </div>
+          <div class="alert alert-danger" *ngIf="directorLastNameInput.invalid && (directorLastNameInput.dirty || directorLastNameInput.touched)">
+            <small *ngIf="directorLastNameInput.errors?.['required']">Director First name required !</small>
+            <small *ngIf="directorLastNameInput.errors?.['minlength']">Director name minimum length is 2 character !</small>
           </div>
           <div class="mb-3">
             <label for="name" class="form-label">Birth Date</label>

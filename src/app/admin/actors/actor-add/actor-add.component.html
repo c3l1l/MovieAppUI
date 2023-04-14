@@ -4,11 +4,19 @@
     <form #addForm="ngForm" (ngSubmit)="add(addForm)">
         <div class="mb-3">
           <label for="name" class="form-label">First Name</label>
-          <input type="text" class="form-control" name="firstname" [(ngModel)]="actorModel.firstName">
+          <input type="text" class="form-control" required minlength="2" #actorFirstNameInput="ngModel" name="firstname" [(ngModel)]="actorModel.firstName">
+        </div>
+        <div class="alert alert-danger" *ngIf="actorFirstNameInput.invalid && (actorFirstNameInput.dirty || actorFirstNameInput.touched)">
+          <small *ngIf="actorFirstNameInput.errors?.['required']">Actor First name required !</small>
+          <small *ngIf="actorFirstNameInput.errors?.['minlength']">Actor name minimum length is 2 character !</small>
         </div>
         <div class="mb-3">
             <label for="name" class="form-label">Last Name</label>
-            <input type="text" class="form-control" name="lastname" [(ngModel)]="actorModel.lastname">
+            <input type="text" class="form-control" required minlength="2" #actorLastNameInput="ngModel" name="lastname" [(ngModel)]="actorModel.lastname">
+          </div>
+          <div class="alert alert-danger" *ngIf="actorLastNameInput.invalid && (actorLastNameInput.dirty || actorLastNameInput.touched)">
+            <small *ngIf="actorLastNameInput.errors?.['required']">Actor Last name required !</small>
+            <small *ngIf="actorLastNameInput.errors?.['minlength']">Actor last name minimum length is 2 character !</small>
           </div>
           <div class="mb-3">
             <label for="name" class="form-label">Birth Date</label>
