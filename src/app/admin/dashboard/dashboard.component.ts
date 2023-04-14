@@ -27,7 +27,6 @@ ngOnInit(){
 }
 getLastAddedMovies(){
     this.movieService.getAllMoviesWithActorsAndDirector().subscribe((res:any)=>{
-      console.log(res.data);
       this.movieList=res.data;
     })
 }
@@ -40,7 +39,6 @@ this.directorService.getAll().subscribe((res:any)=>{
 getAllMoviesWithActorsAndDirector(){
   this.movieService.getAllMoviesWithActorsAndDirector().subscribe((res:any)=>{
     this.movieInfoList=res.data
-    console.log(res);
     this.getAllMoviePosterPath();
   })
 }

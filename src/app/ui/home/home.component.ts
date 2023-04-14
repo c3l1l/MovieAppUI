@@ -22,7 +22,6 @@ export class HomeComponent {
   getAllMoviesWithActorsAndDirector(){
     this.movieService.getAllMoviesWithActorsAndDirector().subscribe((res:any)=>{
       this.movieInfoList=res.data
-     // console.log(res);
       this.getAllMoviePosterPath();
     })
   }
