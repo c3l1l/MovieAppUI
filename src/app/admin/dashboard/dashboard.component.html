@@ -1,1 +1,75 @@
-<p>dashboard works!</p>
+
+<div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h4>Last Added Movies
+        </h4>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Director Name</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of movieList  let index=index">
+                <th [innerText]="index+1"></th>
+                <td>{{movie.name}}</td>
+                <td>{{movie.directorName}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+      <div class="col">
+        <h4>Popular Directors
+        </h4>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let director of directorList  let index=index">
+                <th [innerText]="index+1"></th>
+                <td>{{director.firstName}}</td>
+                <td>{{director.lastName}}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+
+      </div>
+      <div class="col">
+        <h3 class="text-primary">Popular Movie Posters</h3>
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+              <div class="carousel-item active" *ngFor="let movie of movieInfoList">
+                <img  [src]="movie.posterPath" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </div>
+      <div class="col">
+        3 of 3
+      </div>
+    </div>
+  </div>
+
+
